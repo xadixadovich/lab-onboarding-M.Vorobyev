@@ -40,36 +40,38 @@ echo Дата и время: %date% %time%
 echo.
 
 REM --- Операционная система ---
+REM Вместо устаревшей wmic используется тот же источник данных (CIM/WMI),
+REM запрашиваемый короткой командой PowerShell
 echo ------------------------------------------------------------
 echo Операционная система
 echo ------------------------------------------------------------
-for /f "tokens=2 delims==" %%a in ('wmic os get Caption /value ^| find "="') do for /f "delims=" %%b in ("%%a") do echo Название: %%b
-for /f "tokens=2 delims==" %%a in ('wmic os get Version /value ^| find "="') do for /f "delims=" %%b in ("%%a") do echo Версия:   %%b
+for /f "usebackq delims=" %%a in (`powershell -NoProfile -Command "(Get-CimInstance Win32_OperatingSystem).Caption"`) do echo Название: %%a
+for /f "usebackq delims=" %%a in (`powershell -NoProfile -Command "(Get-CimInstance Win32_OperatingSystem).Version"`) do echo Версия:   %%a
 echo.
 
 REM --- Процессор ---
 echo ------------------------------------------------------------
 echo Процессор
 echo ------------------------------------------------------------
-for /f "tokens=2 delims==" %%a in ('wmic cpu get Name /value ^| find "="') do for /f "delims=" %%b in ("%%a") do echo %%b
+for /f "usebackq delims=" %%a in (`powershell -NoProfile -Command "(Get-CimInstance Win32_Processor).Name"`) do echo %%a
 echo.
 
 REM --- Оперативная память (значения в КБ, переводим в ГБ: делим на 1048576) ---
 echo ------------------------------------------------------------
 echo Оперативная память
 echo ------------------------------------------------------------
-for /f "tokens=2 delims==" %%a in ('wmic os get TotalVisibleMemorySize /value ^| find "="') do for /f "delims=" %%b in ("%%a") do set /a RAM_TOTAL=%%b/1048576
-for /f "tokens=2 delims==" %%a in ('wmic os get FreePhysicalMemory /value ^| find "="') do for /f "delims=" %%b in ("%%a") do set /a RAM_FREE=%%b/1048576
+for /f "usebackq delims=" %%a in (`powershell -NoProfile -Command "[math]::Floor((Get-CimInstance Win32_OperatingSystem).TotalVisibleMemorySize / 1048576)"`) do set "RAM_TOTAL=%%a"
+for /f "usebackq delims=" %%a in (`powershell -NoProfile -Command "[math]::Floor((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1048576)"`) do set "RAM_FREE=%%a"
 echo Всего памяти:    %RAM_TOTAL% ГБ
 echo Свободно памяти: %RAM_FREE% ГБ
 echo.
 
-REM --- Диск C (значения в байтах, переводим в ГБ через подпрограмму :bytes2gb) ---
+REM --- Диск C (значения в байтах, переводим в ГБ: делим на 1073741824) ---
 echo ------------------------------------------------------------
 echo Диск C
 echo ------------------------------------------------------------
-for /f "tokens=2 delims==" %%a in ('wmic logicaldisk where "DeviceID='C:'" get Size /value ^| find "="') do for /f "delims=" %%b in ("%%a") do call :bytes2gb %%b DISK_TOTAL
-for /f "tokens=2 delims==" %%a in ('wmic logicaldisk where "DeviceID='C:'" get FreeSpace /value ^| find "="') do for /f "delims=" %%b in ("%%a") do call :bytes2gb %%b DISK_FREE
+for /f "usebackq delims=" %%a in (`powershell -NoProfile -Command "[math]::Floor((Get-CimInstance Win32_LogicalDisk | Where-Object DeviceID -eq 'C:').Size / 1073741824)"`) do set "DISK_TOTAL=%%a"
+for /f "usebackq delims=" %%a in (`powershell -NoProfile -Command "[math]::Floor((Get-CimInstance Win32_LogicalDisk | Where-Object DeviceID -eq 'C:').FreeSpace / 1073741824)"`) do set "DISK_FREE=%%a"
 echo Общий размер: %DISK_TOTAL% ГБ
 echo Свободно:     %DISK_FREE% ГБ
 echo.
@@ -82,17 +84,4 @@ for /f "tokens=2,*" %%a in ('reg query "HKLM\Software\Microsoft\Windows\CurrentV
 for /f "tokens=2,*" %%a in ('reg query "HKLM\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall" /s 2^>nul ^| findstr /r /c:"^ *DisplayName  *REG_SZ" ^| sort') do echo  - %%b
 echo.
 echo ============================================================
-exit /b
-
-
-REM ============================================================
-REM Перевод байт в гигабайты. Вызов: call :bytes2gb ЧИСЛО ИМЯ_ПЕРЕМЕННОЙ
-REM set /a работает с 32-битными числами (максимум около 2,1 млрд),
-REM а размер диска в байтах больше, поэтому сначала отбрасываем
-REM последние 6 цифр (получаем миллионы байт), а потом делим на 1073,74
-REM ============================================================
-:bytes2gb
-set "BYTES=%~1"
-set /a MB=%BYTES:~0,-6%
-set /a %2=MB*100/107374
 exit /b
