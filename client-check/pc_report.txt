@@ -1,0 +1,128 @@
+============================================================
+                 Диагностика компьютера
+============================================================
+Дата и время: 30.10.2026 23:16:50,64
+
+------------------------------------------------------------
+Операционная система
+------------------------------------------------------------
+Название: Майкрософт Windows 11 Pro
+Версия:   10.0.26200
+
+------------------------------------------------------------
+Процессор
+------------------------------------------------------------
+AMD Ryzen 5 7500F 6-Core Processor             
+
+------------------------------------------------------------
+Оперативная память
+------------------------------------------------------------
+Всего памяти:    31 ГБ
+Свободно памяти: 17 ГБ
+
+------------------------------------------------------------
+Диск C
+------------------------------------------------------------
+Общий размер: 475 ГБ
+Свободно:     276 ГБ
+
+------------------------------------------------------------
+Установленные программы
+------------------------------------------------------------
+ - 7-Zip 26.01 (x64)
+ - AIDA64 Extreme v8.20
+ - AiPPT
+ - AMD Ryzen Master SDK
+ - Cableguys ShaperBox
+ - Counter-Strike 2
+ - CPUID CPU-Z MSI 2.18
+ - Deadlock
+ - Dota 2
+ - Epic Games Launcher
+ - FACEIT Anti-Cheat
+ - Garry's Mod
+ - Geometry Dash
+ - Git
+ - Grand Theft Auto V Legacy
+ - Happ - Proxy Utility 2.18.3(573)
+ - IO Aurora Driver
+ - Microsoft GameInput
+ - Microsoft Teams Meeting Add-in for Microsoft Office
+ - Microsoft Visual C++ 2010  x64 Redistributable - 10.0.40219
+ - Microsoft Visual C++ 2012 x64 Additional Runtime - 11.0.61030
+ - Microsoft Visual C++ 2012 x64 Minimum Runtime - 11.0.61030
+ - Microsoft Visual C++ 2022 X64 Additional Runtime - 14.51.36247
+ - Microsoft Visual C++ 2022 X64 Minimum Runtime - 14.51.36247
+ - Microsoft Windows Application Compatibility Fix Database
+ - Mortal Kombat 1
+ - MuMuPlayer
+ - NVIDIA Системное программное обеспечение PhysX 9.23.1019
+ - NVIDIA Графический драйвер 610.88
+ - NVIDIA AIUser Container
+ - NVIDIA App 11.0.8.299
+ - NVIDIA App driver settings
+ - NVIDIA Backend
+ - NVIDIA Container
+ - NVIDIA FrameView SDK 1.8.12612.38276700
+ - NVIDIA Install Application
+ - NVIDIA LocalSystem Container
+ - NVIDIA MessageBus 3 for NvApp
+ - NVIDIA NvDLISR
+ - NVIDIA Session Container
+ - NVIDIA ShadowPlay 11.0.8.0
+ - NVIDIA Telemetry Client
+ - NVIDIA User Container
+ - NVIDIA Virtual Audio 4.65.0.12
+ - NVIDIA Watchdog Plugin for NvContainer
+ - Overplus 0.3.4
+ - Parsec Virtual Display Driver
+ - Parsec Virtual USB Adapter Driver
+ - PostgreSQL 18 
+ - Roland ZENOLOGY
+ - SIGame
+ - Slate Digital Fresh Air
+ - Wallpaper Engine
+ - Xbox Service
+ - Среда выполнения Microsoft Edge WebView2 Runtime
+ - Ассистент 6.5
+ - Ассистент 6.5
+ - AMD Application Compatibility Database Driver
+ - AMD Chipset Software
+ - AMD GPIO2 Driver
+ - AMD I2C Driver
+ - AMD PCI Driver
+ - AMD PPM Provisioning File Driver
+ - AMD PSP Driver
+ - AMD SBxxx SMBus Driver
+ - AMD_Chipset_Drivers
+ - ASIO4ALL
+ - Dirty Business
+ - Dropbox Redeem Launcher
+ - Epic Online Services
+ - FL Cloud Plugins version 2.0.3
+ - FL Studio 2026
+ - FL Studio ASIO
+ - Microsoft Edge
+ - Microsoft Visual C++ 2010  x86 Redistributable - 10.0.40219
+ - Microsoft Visual C++ 2012 Redistributable (x64) - 11.0.61030
+ - Microsoft Visual C++ 2012 Redistributable (x86) - 11.0.61030
+ - Microsoft Visual C++ 2012 x86 Additional Runtime - 11.0.61030
+ - Microsoft Visual C++ 2012 x86 Minimum Runtime - 11.0.61030
+ - Microsoft Visual C++ 2022 X86 Additional Runtime - 14.51.36247
+ - Microsoft Visual C++ 2022 X86 Minimum Runtime - 14.51.36247
+ - Microsoft Visual C++ v14 Redistributable (x64) - 14.51.36247
+ - Microsoft Visual C++ v14 Redistributable (x86) - 14.51.36247
+ - MSI Center SDK
+ - Parsec
+ - Promontory_GPIO Driver
+ - qBittorrent
+ - Radmin VPN 2.0.9
+ - Realtek Audio Driver
+ - Redragon K633CGO-RGB
+ - Rockstar Games Launcher
+ - Rockstar Games SDK
+ - Steam
+ - x264vfw - H.264/MPEG-4 AVC codec (remove only)
+ - Xfer Records Serum 2
+
+============================================================
