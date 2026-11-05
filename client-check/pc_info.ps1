@@ -191,3 +191,4 @@ finally {
         Remove-Item -LiteralPath $AppsTemp -Force -ErrorAction SilentlyContinue
     }
 }
+
